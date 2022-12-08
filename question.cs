@@ -1,7 +1,7 @@
-King whiteKing = new King("Petit roque : e1 -> g1. Grand roque : e1 -> c1");
-King blackKing = new King("Petit roque : e8 -> c8. Grand roque : e8 -> g8");
-Queen blackQueen = new Queen();
-Queen whiteQueen = new Queen();
+//King whiteKing = new King("Petit roque : e1 -> g1. Grand roque : e1 -> c1");
+//King blackKing = new King("Petit roque : e8 -> c8. Grand roque : e8 -> g8");
+//Queen blackQueen = new Queen();
+//Queen whiteQueen = new Queen();
 
 
 abstract class Piece // classe abstraite déclaré avec abstract
