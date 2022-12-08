@@ -15,7 +15,19 @@ public class CountryController : ControllerBase
     }
 
     // Récupère tous les Countries avec les Heroes associés 
-    // TODO
+    // https://stackoverflow.com/questions/51004760/asp-net-web-api-join-two-tables-to-make-an-array-of-objects
+    [HttpGet]
+    public IQueryable<Object> GetCountriesWithHeroes()
+    {
+        return _context.Heroes.Include(hero => hero.Country).Select(hero => new {
+            Id = hero.Id,
+            Name = hero.Name,
+            Description = hero.Description,
+            //Country = Country.First(c => c.Name) TODO FIX
+        });
+    }
+
+
 
     // Créer un Nouveau Country
     [HttpPost]
