@@ -28,13 +28,20 @@ public class HeroController : ControllerBase
         return Ok(myHeroes);
     }
 
+    // Récupère qu'un héro
+    //[HttpGet("{id}")]
+    //public async Task<ActionResult<Hero>> GetOne(int id)
+    //{
+    //    var oneHero = await _context.Heroes.Where(x => x.Id == id);
+    //    return Ok(myHeroes);
+    //}
+
     // Créer un Nouveau Hero
     [HttpPost]
     public async Task<ActionResult<List<Hero>>> CreateHero(Hero unHero)
     {
         _context.Heroes.Add(unHero);
         await _context.SaveChangesAsync();
-        // return Ok("Le hero " + unHero + " a bien été crée !");
         return Ok("Le hero " + unHero.Name + " a bien été crée !");
     }
 
@@ -56,6 +63,19 @@ public class HeroController : ControllerBase
         myHeroToUpdate.Name = myHero.Name;
         myHeroToUpdate.Description = myHero.Description;
         await _context.SaveChangesAsync();
-       return Ok("Le hero " + myHero.Name + " a bien été modifié !");
+       return Ok("Le hero " + myHero.Name + " a bien été modifié !"); // TODO HTTP 204
     }
+
+    //[HttpGet]
+    //public async IQueryable<Object> GetHeroesByCountry()
+    //{
+    //    var test = from c in _context.Countries
+    //           join h in _context.Heroes on h.Id equals c.Id into countrieHeroes
+    //           select new
+    //           {
+    //               name = c.Name,
+    //               heroes = countrieHeroes.Select(ch => ch.Name)
+    //           };
+    //    return Ok();
+    //}
 }

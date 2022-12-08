@@ -3,9 +3,8 @@
     "",
     "\\Context",
     "\\Controllers",
-    "\\Entities",
     "\\Properties"
   ],
-  "SelectedNode": "\\appsettings.json",
+  "SelectedNode": "\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

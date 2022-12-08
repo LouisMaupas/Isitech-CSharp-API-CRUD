@@ -9,4 +9,6 @@ public class ApplicationDbContext : DbContext // hot copy de la bdd
     }
 
     public DbSet<Hero> Heroes { get; set; } // on fait une ligne par table
+    public DbSet<Villain> Villains { get; set; }
+    public DbSet<Country> Countries { get; set; } 
 }
