@@ -1,0 +1,49 @@
+abstract class Piece // classe abstraite déclaré avec abstract
+{
+    public abstract string MovementDescription(); // méthode abstraite qui décrit le mouvement
+}
+
+interface ICastling // interface déclaré avec abstract
+{
+    string castling(); // La méthode castling sera implémenté pour décrire comment la pièce fait un roque.
+}
+
+class King : Piece, ICastling // classe King qui hérite de Piece et implémente ICastling
+{
+    public string MovementDescription { get; set; }
+    public string CastlingDescription { get; set; } // à l'instanciation décrire comment s'effectue le rock selon si on fait un petit ou un grand roque et selon si on joue blanc ou noir.
+
+    public King(string Move)
+    {
+        Move = "une case à la fois, dans toutes les directions.";
+    }
+
+    public override string MovementDescription() // King implémente la méthode MovementDescription de Piece grâce au mot-clé override
+    {
+        return "Le roi se déplace ainsi : " + Move;
+    }
+
+    public string castling() // Implémente la méthode castling de l'interface ICastling
+    {
+        return CastlingDescription;
+    }
+}
+
+class Queen : Piece // classe Queen qui hértie de Piece
+{
+    public string MovementDescription { get; set; }
+
+    public Queen(string Move)
+    {
+        Move = "soit horizontalement, soit verticalement, soit diagonalement d'un nombre de cases indifférent.";
+    }
+
+    public override string MovementDescription() // Queen implémente la méthode MovementDescription de Piece grâce au mot-clé override
+    {
+        return "La reine se déplace ainsi : " + Move;
+    }
+
+    // On implémente pas l'interface car la reine ne peut pas roquer
+
+}
+
